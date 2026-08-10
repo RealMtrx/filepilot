@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, mkdir, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -33,4 +33,19 @@ export function randomBytes(size: number): Buffer {
     buf[i] = (i * 31 + 17) % 251
   }
   return buf
+}
+
+export async function supportsSymlinks(): Promise<boolean> {
+  const dir = await makeTempDir('filepilot-symlink-')
+  try {
+    const target = join(dir, 'target.txt')
+    const link = join(dir, 'link.txt')
+    await writeFile(target, 'x')
+    await symlink(target, link)
+    return true
+  } catch {
+    return false
+  } finally {
+    await removeTemp(dir)
+  }
 }
