@@ -1,4 +1,50 @@
 export { TaskQueue, mapWithConcurrency } from './core/concurrency'
+export {
+  executePlan,
+  nodeOrganizerFs,
+  type ExecuteOptions,
+  type ExecutionResult,
+  type MoveExecution,
+  type MoveStatus,
+  type OrganizerFs,
+} from './core/organizer/executor'
+export { planOrganization, splitConflicts, type PlanOptions } from './core/organizer/planner'
+export {
+  bumpName,
+  resolveConflicts,
+  type ResolutionResult,
+} from './core/organizer/resolver'
+export {
+  defaultJournalPath,
+  createOperation,
+  TransactionManager,
+  type TransactionOperation,
+  type TransactionRecord,
+} from './core/organizer/transaction'
+export { renderPlan } from './core/organizer/report'
+export {
+  detectProjectRoots,
+  isInsideProjectRoots,
+  isProjectMarkerFile,
+} from './core/organizer/projects'
+export type {
+  Conflict,
+  ConflictReason,
+  ConflictStrategy,
+  OrganizationPlan,
+  PlanSummary,
+  PlannedMove,
+  Skip,
+  SkipReason,
+} from './core/organizer/types'
+export {
+  isDestinationInside,
+  isProtectedPath,
+  validateDestinationRoot,
+  validateFolderName,
+  validateSourcePath,
+  type ValidatedDestinationRoot,
+} from './core/organizer/validator'
 export { analyzeEntries } from './core/analysis/analyzer'
 export type {
   AnalysisOptions,
