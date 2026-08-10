@@ -52,6 +52,24 @@ export {
 } from './core/paths'
 export { getVersion } from './core/version'
 export {
+  classifyFileName,
+  classifyWithMagic,
+  categoryForExtension,
+  categoryForMagic,
+  extensionOf,
+  sniffFileType,
+  FILE_CATEGORIES,
+  CATEGORY_INFO,
+  isFileCategory,
+  categoryLabel,
+  categoryFolder,
+  type Classification,
+  type ClassificationMethod,
+  type FileCategory,
+  type CategoryInfo,
+  type MagicType,
+} from './core/classification/classifier'
+export {
   formatBytes,
   formatDuration,
   formatList,
