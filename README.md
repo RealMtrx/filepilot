@@ -114,6 +114,12 @@ npm run test        # Vitest
 npm run build       # tsup
 ```
 
+## Author
+
+Created and maintained by Mtrx.
+
+GitHub: [@RealMtrx](https://github.com/RealMtrx)
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

@@ -4,10 +4,7 @@
   "description": "Local-first file analysis and organization tool. Everything runs on your machine - no accounts, no cloud, no data leaving your device.",
   "license": "MIT",
   "type": "module",
-  "author": {
-    "name": "Mtrx-Gxy",
-    "url": "https://github.com/RealMtrx"
-  },
+  "author": "Mtrx",
   "publishConfig": {
     "access": "public"
   },
