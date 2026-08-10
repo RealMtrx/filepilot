@@ -64,9 +64,15 @@ export class ScanError extends FilePilotError {
   }
 }
 
-export class ScanAbortedError extends FilePilotError {
+export class AbortedError extends FilePilotError {
+  constructor(message = 'Operation aborted by user') {
+    super(message, { code: 'ABORTED' })
+  }
+}
+
+export class ScanAbortedError extends AbortedError {
   constructor(message = 'Scan aborted by user') {
-    super(message, { code: 'SCAN_ABORTED' })
+    super(message)
   }
 }
 
