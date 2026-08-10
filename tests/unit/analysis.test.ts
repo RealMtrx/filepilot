@@ -135,9 +135,9 @@ describe('analyzeEntries', () => {
     expect(result.topFiles.map((f) => f.name)).toEqual(['a.bin', 'b.bin'])
   })
 
-  it('classifies extension-less files with magic-free fallback as other', () => {
+  it('classifies unknown extension-less files as other', () => {
     const root = 'C:\\root'
-    const files = [entry(join(root, 'README'), 'README', 42, 1, root)]
+    const files = [entry(join(root, 'MYSTERYDATA'), 'MYSTERYDATA', 42, 1, root)]
     const result = analyzeEntries(files, [root])
     expect(result.byCategory).toHaveLength(1)
     expect(result.byCategory[0]!.category).toBe('other')
