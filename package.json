@@ -1,9 +1,16 @@
 {
-  "name": "filepilot",
+  "name": "filepilot-cli",
   "version": "0.1.0",
   "description": "Local-first file analysis and organization tool. Everything runs on your machine - no accounts, no cloud, no data leaving your device.",
   "license": "MIT",
   "type": "module",
+  "author": {
+    "name": "Mtrx-Gxy",
+    "url": "https://github.com/RealMtrx"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "file-manager",
     "disk-analyzer",
@@ -48,7 +55,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm test && npm run build"
   },
   "dependencies": {
     "commander": "^15.0.0",
