@@ -182,7 +182,7 @@ describe('executePlan — dry run', () => {
 
 describe('executePlan — real execution', () => {
   it('moves files into category folders and journals them', async () => {
-    const { srcDir, destDir, files, plan } = await makeScenario()
+    const { destDir, files, plan } = await makeScenario()
     const journalFile = join(await makeTemp(), 'tx.json')
     const result = await executePlan(plan, { dryRun: false, journalFile })
 
@@ -248,7 +248,7 @@ describe('executePlan — real execution', () => {
   })
 
   it('continues after a missing source', async () => {
-    const { srcDir, destDir, files, plan } = await makeScenario()
+    const { destDir, files, plan } = await makeScenario()
     await rm(files[0]!)
     const result = await executePlan(plan, {
       dryRun: false,
@@ -273,7 +273,7 @@ describe('executePlan — real execution', () => {
   })
 
   it('survives permission failures without crashing the plan', async () => {
-    const { srcDir, destDir, files, plan } = await makeScenario()
+    const { destDir, files, plan } = await makeScenario()
     const fs = new FailingFs([{ op: 'rename', path: files[2]!, code: 'EACCES' }])
     const result = await executePlan(plan, {
       dryRun: false,
@@ -288,7 +288,7 @@ describe('executePlan — real execution', () => {
   })
 
   it('recovers from an interrupted rename and keeps going', async () => {
-    const { srcDir, destDir, files, plan } = await makeScenario()
+    const { destDir, files, plan } = await makeScenario()
     const fs = new FailingFs([{ op: 'rename', path: files[1]!, code: 'EIO' }])
     const result = await executePlan(plan, {
       dryRun: false,
@@ -379,7 +379,7 @@ describe('executePlan — real execution', () => {
   })
 
   it('aborts mid-run on request, leaving an in-progress journal', async () => {
-    const { files, plan } = await makeScenario()
+    const { plan } = await makeScenario()
     const journalFile = join(await makeTemp(), 'tx.json')
     const controller = new AbortController()
     let renameCount = 0
