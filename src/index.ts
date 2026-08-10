@@ -1,4 +1,14 @@
 export { TaskQueue, mapWithConcurrency } from './core/concurrency'
+export { scanDirectories } from './core/scanner/scanner'
+export type {
+  FileEntry,
+  ScanErrorRecord,
+  ScanOptions,
+  ScanProgress,
+  ScanResult,
+} from './core/scanner/types'
+export { IgnoreMatcher, parseIgnorePattern, type IgnoreRule } from './core/scanner/ignore'
+export { nodeFileSystem, type DirEntry, type FileSystemAdapter } from './core/scanner/fs-adapter'
 export {
   ConfigStore,
   DEFAULT_CONFIG,

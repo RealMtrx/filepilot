@@ -64,6 +64,12 @@ export class ScanError extends FilePilotError {
   }
 }
 
+export class ScanAbortedError extends FilePilotError {
+  constructor(message = 'Scan aborted by user') {
+    super(message, { code: 'SCAN_ABORTED' })
+  }
+}
+
 export function isFilePilotError(err: unknown): err is FilePilotError {
   return err instanceof FilePilotError
 }
