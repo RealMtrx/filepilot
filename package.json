@@ -1,0 +1,70 @@
+{
+  "name": "filepilot",
+  "version": "0.1.0",
+  "description": "Local-first file analysis and organization tool. Everything runs on your machine - no accounts, no cloud, no data leaving your device.",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "file-manager",
+    "disk-analyzer",
+    "duplicate-finder",
+    "file-organizer",
+    "tui",
+    "cli",
+    "local-first",
+    "privacy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RealMtrx/filepilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RealMtrx/filepilot/issues"
+  },
+  "homepage": "https://github.com/RealMtrx/filepilot",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "bin": {
+    "filepilot": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "ink": "^7.1.1",
+    "ink-text-input": "^6.0.0",
+    "react": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.18",
+    "@vitest/coverage-v8": "^4.1.10",
+    "eslint": "^10.8.1",
+    "prettier": "^3.9.6",
+    "tsup": "^8.5.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.66.0",
+    "vitest": "^4.1.10"
+  }
+}
