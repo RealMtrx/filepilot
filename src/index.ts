@@ -1,4 +1,12 @@
 export { TaskQueue, mapWithConcurrency } from './core/concurrency'
+export { analyzeEntries } from './core/analysis/analyzer'
+export type {
+  AnalysisOptions,
+  CategoryStat,
+  DiskAnalysis,
+  FileStat,
+  FolderStat,
+} from './core/analysis/analyzer'
 export { findDuplicates } from './core/duplicates/detector'
 export type {
   DuplicateDetectionOptions,
