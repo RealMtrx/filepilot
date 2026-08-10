@@ -1,4 +1,13 @@
 export { TaskQueue, mapWithConcurrency } from './core/concurrency'
+export { findDuplicates } from './core/duplicates/detector'
+export type {
+  DuplicateDetectionOptions,
+  DuplicateFile,
+  DuplicateGroup,
+  DuplicateProgress,
+  DuplicateResult,
+} from './core/duplicates/detector'
+export { hashBuffer, hashFileStream } from './core/duplicates/hashing'
 export { scanDirectories } from './core/scanner/scanner'
 export type {
   FileEntry,
@@ -32,6 +41,8 @@ export {
   OrganizeError,
   OrganizeConflictError,
   ScanError,
+  ScanAbortedError,
+  AbortedError,
   isFilePilotError,
   toErrorMessage,
   formatError,
