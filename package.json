@@ -1,6 +1,6 @@
 {
   "name": "filepilot-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Local-first file analysis and organization tool. Everything runs on your machine - no accounts, no cloud, no data leaving your device.",
   "license": "MIT",
   "type": "module",
