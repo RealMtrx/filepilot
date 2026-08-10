@@ -4,7 +4,7 @@ import { Command } from 'commander'
 import { formatError } from './core/errors'
 import { getVersion } from './core/version'
 
-export function buildProgram(): Command {
+export async function buildProgram(): Promise<Command> {
   const program = new Command()
 
   program
@@ -23,12 +23,15 @@ export function buildProgram(): Command {
     await runInteractiveMode()
   })
 
+  const { buildOrganizeCommand } = await import('./commands/organize')
+  buildOrganizeCommand(program)
+
   return program
 }
 
 async function main(): Promise<void> {
   try {
-    await buildProgram().parseAsync(process.argv)
+    await (await buildProgram()).parseAsync(process.argv)
   } catch (err) {
     process.stderr.write(`filepilot: ${formatError(err)}\n`)
     process.exitCode = 1
